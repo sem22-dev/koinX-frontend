@@ -21,9 +21,9 @@ export default function Footer() {
         const data = await response.json();
         setTrendingCoins(data.coins.map(coin => ({
           id: coin.item.id,
-          name: coin.item.symbol.toUpperCase(),
-          current_price: coin.item.price_btc.toFixed(6),
-          price_change_percentage_24h: coin.item.score.toFixed(2),
+          name: coin.item.symbol,
+          current_price: coin.item.data.price,
+          price_change_percentage_24h: coin.item.data.price_change_percentage_24h.usd.toFixed(2),
           image: coin.item.large,
           sparkline: coin.item.data.sparkline // Assuming sparkline URL is here
         })));
@@ -75,7 +75,7 @@ export default function Footer() {
                   {coin.price_change_percentage_24h}%
                 </p>
             </div>
-            <p className="text-left  my-2">${coin.current_price}</p>
+            <p className="text-left  my-2">{coin.current_price}</p>
             {/* You may need to replace this with actual sparkline graph rendering */}
             <img src={coin.sparkline} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
           </div>
