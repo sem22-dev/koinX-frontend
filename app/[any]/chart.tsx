@@ -1,14 +1,11 @@
 
-
-'use client'
-
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingViewWidget({ cryptoSymbol }: any) {
-  const container = useRef();
+function TradingViewWidget({ cryptoSymbol }: { cryptoSymbol: string }) {
+  // Specify the type of element this ref will be attached to
+  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
     const tradingViewSymbol = `BITSTAMP:${cryptoSymbol}USD`;
 
     console.log('symbolhaha', tradingViewSymbol)
@@ -35,18 +32,17 @@ function TradingViewWidget({ cryptoSymbol }: any) {
       "hide_volume": true,
       "support_host": "https://www.tradingview.com",
     });
-    
 
     setTimeout(() => {
-      container.current.innerHTML = ''; // Clear the container before appending new script
-      container.current.appendChild(script);
+      container.current!.innerHTML = ''; // Clear the container before appending new script
+      container.current!.appendChild(script);
     }, 100); // Delay the script injection by 100ms
-      return () => {
-      // Cleanup the container and remove the script on component unmount
     
-     
+    
+    return () => {
+      // Cleanup if necessary
     };
-  }, []);
+  }, [cryptoSymbol]); // Added cryptoSymbol as a dependency
 
   return (
     <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
