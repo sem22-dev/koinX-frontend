@@ -33,6 +33,7 @@ export default function ExampleClientComponent() {
 
   const [trendingCoins, setTrendingCoins] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
 
   useEffect(() => {
@@ -139,7 +140,7 @@ export default function ExampleClientComponent() {
         <div className="hidden lg:block w-1/4">
 
           <GetStarted />
-          <TrendingCoins trendingCoins={trendingCoins}/>
+          <TrendingCoins isLoading={loading} trendingCoins={trendingCoins}/>
         </div>
       </div>
     </main>

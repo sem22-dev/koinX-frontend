@@ -2,6 +2,36 @@ import { Info } from "lucide-react";
 
 export default function Overview({performanceData}:any){
 
+  const isLoading = !performanceData;
+
+  // Define placeholder loading blocks
+  const LoadingBlock = () => (
+      <div className="animate-pulse flex flex-col gap-2">
+          <div className="h-6 bg-gray-300 rounded"></div>
+          <div className="h-6 bg-gray-300 rounded w-3/4"></div>
+      </div>
+  );
+
+  if (isLoading) {
+      return (
+          <div>
+              <h1 className='text-xl font-semibold'>Performance</h1>
+              <div className="mt-8">
+                  <LoadingBlock />
+                  <LoadingBlock />
+              </div>
+              <div className="mt-8">
+                  <h1 className="text-lg font-medium mt-8">Fundamentals</h1>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-24 mt-4">
+                      <LoadingBlock />
+                      <LoadingBlock />
+                  </div>
+              </div>
+          </div>
+      );
+  }
+
+
     const coinName = performanceData?.name;
     const tradingVolume = performanceData?.volume.toLocaleString();
     const marketCapRank = performanceData?.marketCapRank;
