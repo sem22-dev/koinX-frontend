@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
             <p className="text-left  my-2">{coin.current_price}</p>
             {/* You may need to replace this with actual sparkline graph rendering */}
-            <Image src={coin.sparkline} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
+            <Image src={coin.sparkline} width={100} height={50} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
           </div>
         ))
           )}
