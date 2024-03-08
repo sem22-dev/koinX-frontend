@@ -4,7 +4,6 @@ export default function Overview({performanceData}:any){
 
   const isLoading = !performanceData;
 
-  // Define placeholder loading blocks
   const LoadingBlock = () => (
       <div className="animate-pulse flex flex-col gap-2">
           <div className="h-6 bg-gray-300 rounded"></div>
@@ -36,7 +35,7 @@ export default function Overview({performanceData}:any){
     const tradingVolume = performanceData?.volume.toLocaleString();
     const marketCapRank = performanceData?.marketCapRank;
     const marketCap = performanceData?.marketCap.toLocaleString();
-    // Calculating Volume/Market Cap Ratio
+
     const volumeMarketCapRatio = ((performanceData?.volume / performanceData?.marketCap) || 0).toFixed(2);
     const athChangePercentage = performanceData?.athChangePercentage.toFixed(2);
     const atlChangePercentage = performanceData?.atlChangePercentage.toFixed(2);

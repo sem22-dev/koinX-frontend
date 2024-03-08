@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Overview from './overview';
 
-// Define the interface for performance data
 interface PerformanceData {
     todaysLow: number;
     todaysHigh: number;
@@ -22,16 +21,16 @@ interface PerformanceData {
   }
   
 export default function ContentMenu({cryptoName}) {
-    // Define the menu items
+    //the menu items
     const menuItems = ["Overview", "Fundamentals", "New Insights", "Sentiments", "Team", "Technicals", "Tokenomics"];
-    // State to track the current active item
+   
     const [activeItem, setActiveItem] = useState("Overview");
     const [performanceData, setPerformanceData] = useState<PerformanceData | null>(null);
 
     console.log('performanceData', performanceData)
 
    const apiKey = process.env.NEXT_PUBLIC_COINGECKO_API_KEY;
-    const cryptoId = cryptoName; // Replace with dynamic cryptoId if necessary
+    const cryptoId = cryptoName; 
 
     useEffect(() => {
         const fetchPerformanceData = async () => {
@@ -81,11 +80,10 @@ export default function ContentMenu({cryptoName}) {
 
     useEffect(() => {
         console.log('Updated performanceData:', performanceData);
-    }, [performanceData]); // Effect to log changes in performanceData
-    // Function to render the content based on the active item
+    }, [performanceData]); 
 
     const calculatePosition = (low:number, high: number, current:number) => {
-        if (high === low) return 50; // Avoid division by zero; place in the middle if no range
+        if (high === low) return 50; 
         return ((current - low) / (high - low)) * 100;
       };
       
@@ -104,14 +102,14 @@ export default function ContentMenu({cryptoName}) {
     return (
         <div className='mt-10'>
         <div>
-          <div className="border-b border-gray-200 overflow-auto">
-            <nav className="w-screen md:w-fit gap-6 flex overflow-x-auto hide-scrollbar" aria-label="Tabs">
+          <div className="border-b border-gray-200">
+            <nav className="w-[390px] sm:w-fit gap-6 flex overflow-x-auto hide-scrollbar" aria-label="Tabs">
               {menuItems.map((item) => (
                 <a
                   key={item}
                   href="#"
                   onClick={(e) => {
-                    e.preventDefault(); // Prevent default anchor behavior
+                    e.preventDefault(); 
                     setActiveItem(item);
                   }}
                   className={`shrink-0 border-b-2 px-1 pb-4 text-sm font-medium ${activeItem === item ? "border-koinx-blue text-koinx-blue" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"}`}
@@ -119,7 +117,7 @@ export default function ContentMenu({cryptoName}) {
                   {item}
                 </a>
               ))}
-            </nav>
+              </nav>
           </div>
         </div>
         <div className='mt-6 bg-white p-4 rounded-lg'>

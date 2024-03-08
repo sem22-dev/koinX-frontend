@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { Newspaper, TrendingUp, ChevronRight} from "lucide-react";
+import Image from "next/image";
 
 const Card = () => (
-  <div className="bg-[#E8F4FD] p-4 rounded-xl flex-none max-w-[600px]" >
+  <div className="bg-[#E8F4FD] p-4 rounded-xl flex-none max-w-full sm::max-w-[600px]" >
     <div className="flex items-start gap-2">
      <div className=" bg-koinx-blue rounded-full p-2">
      <Newspaper size={20} color="#fff" fill="blue" className=" bg-koinx-blue"/>
@@ -23,7 +24,7 @@ const Card = () => (
 );
 
 const Card2 = () => (
-    <div className="bg-[#EBF9F3] p-4 rounded-xl flex-none max-w-[600px]" >
+    <div className="bg-[#EBF9F3] p-4 rounded-xl flex-none max-w-full sm:max-w-[600px]" >
       <div className="flex items-start gap-2">
        <div className=" bg-[#0FBA83] rounded-full p-2">
        <TrendingUp size={20} color="#fff" fill="#0FBA83" className=" bg-[#0FBA83]"/>
@@ -50,14 +51,14 @@ export default function Cards() {
   const scrollNext = () => {
     if (containerRef.current) {
       const { current: container } = containerRef;
-      const scrollAmount = container.offsetWidth / 2; // Adjust this value as needed
+      const scrollAmount = container.offsetWidth / 2;
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
 
   return (
-    <div className="relative w-screen sm:w-fit">
+    <div className="relative w-[370px] sm:w-fit">
       <div ref={containerRef} className="flex overflow-x-auto gap-4 hide-scrollbar">
         <Card />
         <Card2 />

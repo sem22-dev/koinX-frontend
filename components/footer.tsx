@@ -22,7 +22,7 @@ export default function Footer() {
           current_price: coin.item.data.price,
           price_change_percentage_24h: coin.item.data.price_change_percentage_24h.usd.toFixed(2),
           image: coin.item.large,
-          sparkline: coin.item.data.sparkline // Assuming sparkline URL is here
+          sparkline: coin.item.data.sparkline 
         })));
         console.log('trending', data)
       } catch (error) {
@@ -38,7 +38,7 @@ export default function Footer() {
   }, [trendingCoins]);
   
 
-  // Render function for the scrolling section including ChevronLeft and ChevronRight buttons
+  
   const renderScrollingSection = (header, sectionRef, isLoading) => {
     const scroll = (direction) => {
       if (sectionRef.current) {
@@ -63,17 +63,17 @@ export default function Footer() {
           {isLoading ? (
               Array.from({ length: 3 }).map((_, index) => <LoadingCard key={index} />)
           ) : (
-            trendingCoins.slice(0, 10).map((coin) => ( // Limiting to 10 coins for display
+            trendingCoins.slice(0, 10).map((coin) => ( 
           <div key={coin.id} className=" border p-4 rounded-lg shadow">
             <div className="flex gap-4 w-72 items-center ">
-              <img src={coin.image} alt={`${coin.name} logo`} className="w-6 h-6 rounded-full"/>
+              <Image src={coin.image} width={100} height={100} alt={`${coin.name} logo`} className="w-6 h-6 rounded-full"/>
                 <h2 className="text-md font-semibold">{coin.name}</h2>
                 <p className={`text-sm ${coin.price_change_percentage_24h < 0 ? 'text-red-500' : 'text-green-500'}`}>
                   {coin.price_change_percentage_24h}%
                 </p>
             </div>
             <p className="text-left  my-2">{coin.current_price}</p>
-            {/* You may need to replace this with actual sparkline graph rendering */}
+          
             <Image src={coin.sparkline} width={100} height={40} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
           </div>
         ))

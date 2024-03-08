@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget({ cryptoSymbol }: { cryptoSymbol: string }) {
-  // Specify the type of element this ref will be attached to
+  
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,15 +34,15 @@ function TradingViewWidget({ cryptoSymbol }: { cryptoSymbol: string }) {
     });
 
     setTimeout(() => {
-      container.current!.innerHTML = ''; // Clear the container before appending new script
+      container.current!.innerHTML = ''; 
       container.current!.appendChild(script);
-    }, 100); // Delay the script injection by 100ms
+    }, 100); 
     
     
     return () => {
       // Cleanup if necessary
     };
-  }, [cryptoSymbol]); // Added cryptoSymbol as a dependency
+  }, [cryptoSymbol]);
 
   return (
     <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
