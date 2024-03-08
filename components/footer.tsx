@@ -13,11 +13,7 @@ export default function Footer() {
    const apiKey = process.env.NEXT_PUBLIC_COINGECKO_API_KEY;
     const fetchTrendingCoins = async () => {
       try {
-        const response = await fetch(`https://api.coingecko.com/api/v3/search/trending`, {
-          headers: {
-            'X-Cg-Api-Key': apiKey
-          }
-        });
+        const response = await fetch(`https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=${apiKey}`);
         const data = await response.json();
         setTrendingCoins(data.coins.map(coin => ({
           id: coin.item.id,

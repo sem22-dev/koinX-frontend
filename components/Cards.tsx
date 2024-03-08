@@ -57,7 +57,7 @@ export default function Cards() {
 
 
   return (
-    <div className="relative w-screen sm:w-fit">
+    <div className="relative ">
       <div ref={containerRef} className="flex overflow-x-auto gap-4 hide-scrollbar">
         <Card />
         <Card2 />
