@@ -103,7 +103,7 @@ export default function ContentMenu({cryptoName}) {
         <div className='mt-10'>
         <div>
           <div className="border-b border-gray-200">
-            <nav className="w-[375px] border sm:w-fit gap-6 flex overflow-x-auto hide-scrollbar" aria-label="Tabs">
+            <nav className="w-[375px] sm:w-fit gap-6 flex overflow-x-auto hide-scrollbar" aria-label="Tabs">
               {menuItems.map((item) => (
                 <a
                   key={item}
