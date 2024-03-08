@@ -4,7 +4,7 @@ import Cards from "./Cards";
 
 export default function Sentiment() {
     return (
-        <div className="mt-10 bg-white px-4 py-6 rounded-lg">
+        <div className="mt-10 bg-white px-2 sm:px-4 py-6 rounded-lg">
             <h1 className='text-xl font-semibold'>Sentiment</h1>
             <h1 className="text-md font-medium my-4 flex items-center gap-2">Key Events <Info size={20} fill="#ABB9C0" color="white" /></h1>
             <Cards />

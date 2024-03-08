@@ -58,8 +58,8 @@ export default function Cards() {
 
 
   return (
-    <div className="relative w-[370px] sm:w-fit">
-      <div ref={containerRef} className="flex overflow-x-auto gap-4 hide-scrollbar">
+    <div className="relative w-[360px] sm:w-fit">
+      <div ref={containerRef} className="flex  overflow-x-auto gap-4 hide-scrollbar">
         <Card />
         <Card2 />
         <Card />
