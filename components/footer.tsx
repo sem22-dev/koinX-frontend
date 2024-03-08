@@ -3,6 +3,7 @@
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import GetStarted from './getStarted';
+import Image from 'next/image';
 
 export default function Footer() {
   const [trendingCoins, setTrendingCoins] = useState([]);
@@ -73,7 +74,7 @@ export default function Footer() {
             </div>
             <p className="text-left  my-2">{coin.current_price}</p>
             {/* You may need to replace this with actual sparkline graph rendering */}
-            <img src={coin.sparkline} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
+            <Image src={coin.sparkline} alt={`${coin.name} sparkline`} className="w-full object-cover rounded-lg"/>
           </div>
         ))
           )}
